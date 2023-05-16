@@ -3,5 +3,7 @@ class MopedsController < ApplicationController
   end
 
   def show
+
+    @moped = Moped.find(params[:id])
   end
 end
