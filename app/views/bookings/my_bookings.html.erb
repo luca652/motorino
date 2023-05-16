@@ -1,2 +1,11 @@
 <h1>Bookings#my_bookings</h1>
 <p>Find me in app/views/bookings/my_bookings.html.erb</p>
+
+<% @my_bookings.each do |booking| %>
+<ul>
+  <li>
+    <%= booking.moped.name %>
+    <%= booking.moped.price %>
+  </li>
+</ul>
+<% end %>
