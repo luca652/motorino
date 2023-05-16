@@ -10,19 +10,24 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <div class="btn-signin">
+              <a class="btn btn-flat" href="#">Sign in </a>
+            </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Messages</a>
+          <li class="nav-item active">
+            <div class="btn-login">
+              <a class="btn btn-flat" href="#">Log in</a>
+            </div>
           </li>
-          <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://img.freepik.com/premium-vector/user-customer-avatar-vector-illustration_276184-160.jpg?w=1060" />
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Sign up</a>
-              <a class="dropdown-item" href="#">Log in</a>
-              <a class="dropdown-item" href="#">Help</a>
-              <br>
-              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+          <li class="nav-item-dropdown">
+            <div class="nav-item dropdown">
+              <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://img.freepik.com/premium-vector/user-customer-avatar-vector-illustration_276184-160.jpg?w=1060" />
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Language</a>
+                <a class="dropdown-item" href="#">Help</a>
+                <br>
+                <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+              </div>
             </div>
           </li>
           <!--li class="nav-item"-->
