@@ -1,5 +1,6 @@
 class MopedsController < ApplicationController
   def index
+    
   end
 
   def show
