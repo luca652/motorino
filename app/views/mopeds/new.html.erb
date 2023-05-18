@@ -1,0 +1,14 @@
+<h1>List a new moped!</h1>
+
+<h1>List a new moped!</h1>
+
+
+<%= simple_form_for @moped do |f| %>
+  <%= f.input :name %>
+  <%= f.input :color %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :n_of_passengers %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit %>
+<% end %>
