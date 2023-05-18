@@ -1,0 +1,10 @@
+<h1>Book this moped</h1>
+
+
+<%= simple_form_for [@moped, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :moped_id, value: @moped.id %>
+  <%= f.submit "Book" %>
+<% end %>
