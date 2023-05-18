@@ -4,6 +4,7 @@ class MopedsController < ApplicationController
     @previous_moped = Moped.where("id < ?", @moped.id).last
     @next_moped = Moped.where("id > ?", @moped.id).first
     @total_mopeds = Moped.count
+    @booking = Booking.new
   end
 
   def new

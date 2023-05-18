@@ -1,5 +1,4 @@
-<h1>Mopeds#show</h1>
-<p>Find me in app/views/mopeds/show.html.erb</p>
+<h1>Mopeds</h1>
 <h1>Moped Details</h1>
 <p><strong>Name:</strong> <%= @moped.name %></p>
 <p><strong>Color:</strong> <%= @moped.color %></p>
@@ -16,10 +15,22 @@
 <% end %>
 
 <%= link_to "Return to home", root_path %>
+
+<p>Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
 <%= link_to "Edit", edit_moped_path(@moped) %> <!-- Add this line -->
 <%= link_to "Delete", moped_path(@moped), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 
 
+<%= simple_form_for [@moped, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :moped_id, value: @moped.id %>
+  <%= f.submit "Book" %>
+<% end %>
 
 
-<p>Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
+
+
+
+
