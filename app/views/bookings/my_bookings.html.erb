@@ -5,8 +5,8 @@
 <% @my_bookings.each do |booking| %>
 <ul>
   <li>
-    <em> Name: </em><%= booking.moped.name %>
-    </em> Price: </em> <%= booking.moped.price %>
+    <%= booking.moped.name %>
+    £<%= booking.moped.price %>
   </li>
 </ul>
 <% end %>
