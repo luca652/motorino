@@ -1,0 +1,30 @@
+<br>
+<br>
+<br>
+
+<h1>Edit Moped</h1>
+<%= form_with(model: @moped, url: moped_path(@moped), method: :patch) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :color %>
+    <%= form.text_field :color %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+  <div>
+    <%= form.label :n_of_passengers %>
+    <%= form.number_field :n_of_passengers %>
+  </div>
+  <div>
+    <%= form.submit "Update Moped" %>
+  </div>
+<% end %>

@@ -16,3 +16,10 @@
 <% end %>
 
 <%= link_to "Return to home", root_path %>
+<%= link_to "Edit", edit_moped_path(@moped) %> <!-- Add this line -->
+<%= link_to "Delete", moped_path(@moped), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+
+
+
+
+<p>Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
