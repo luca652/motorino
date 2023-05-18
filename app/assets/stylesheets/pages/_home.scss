@@ -39,37 +39,26 @@ h1, h2 {
 
 
 .card-moped {
+  display: flex;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 5px, 5px, 5px;
-  border: 10px, 10px, 10px;
-}
-
-.card-moped h2 {
   font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+  font-weight: lighter;
+  margin: 5px, 5px, 5px;
 }
 
-.card-moped p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-
-.card-moped .card-moped-infos {
+.card-moped-infos {
+  box-sizing: border-box;
   padding: 16px;
-  display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
 }
 
-.card-moped-infos .card-moped-owner {
-  position: relative;
-  right: 16px;
-  top: 20px;
-  width: 40px;
-}
+// .card-moped-infos {
+//   position: relative;
+//   right: 16px;
+//   top: 20px;
+//   width: 40px;
+// }

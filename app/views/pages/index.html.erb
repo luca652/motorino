@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://productiontickets.blob.core.windows.net/presentationfiles/b390661e-cc44-4f4e-b79b-dd4baf33fdcd/original.jpg?sv=2018-03-28&sr=b&sig=quWm0quspDfob2eEthP8KGsBDHqUV7fkpwkx6oZS%2Fv4%3D&se=2023-05-15T23%3A11%3A35Z&sp=r&rsct=&rscd=inline%3Bfilename%3Db390661e-cc44-4f4e-b79b-dd4baf33fdcd.jpg)">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)) ">
     <h1><strong>Motorino</strong>, let's ride!</h1>
     <p>Challenge the traffic. Discover an exciting way to explore the world.</p>
     <a class="btn btn-flat" href="#">Choose a date</a>
@@ -7,18 +7,16 @@
 
 <h2>Mopeds</h2>
 
-<p><% @mopeds.each do |moped| %>
-  <div class="card-moped">
-    <div class="card-moped-infos">
-      <div>
-        <%= moped.name %>
-          <%= moped.color%>
-          <%= moped.description%>
-          <%= moped.n_of_passengers%>
-          <h2 class="card-moped-pricing">£<%= moped.price %></h2>
-          <h3 class="card-moped-owner"><%= moped.user.first_name %>
-          <%= link_to "See more details", moped_path(moped), class: "btn btn-flat" %>
-      </div>
+<ul><% @mopeds.each do |moped| %>
+  <div class="card-moped flex-container">
+    <div class="card-moped-infos flex-item">
+      <li>Name: <%= moped.name %></li>
+      <li>Color: <%= moped.color%></li>
+      <li>Description: <%= moped.description%></li>
+      <li>No of passengers <%= moped.n_of_passengers%></li>
+      <li>Price: £<%= moped.price %></li>
+      <li>Owned by <%= moped.user.first_name %></li>
+      <%= link_to "See more details", moped_path(moped), class: "btn btn-flat" %>
     </div>
   </div>
-<% end %></p>
+<% end %></ul>
