@@ -17,7 +17,7 @@
           <%= moped.n_of_passengers%>
           <h2 class="card-moped-pricing">£<%= moped.price %></h2>
           <h3 class="card-moped-owner"><%= moped.user.first_name %>
-          <%= link_to "See more details", mopeds_path(moped.id), class: "btn btn-flat" %>
+          <%= link_to "See more details", moped_path(moped), class: "btn btn-flat" %>
       </div>
     </div>
   </div>

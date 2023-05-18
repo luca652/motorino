@@ -2,11 +2,20 @@
 <p>Find me in app/views/bookings/my_bookings.html.erb</p>
 
 <h4>Mopeds I have booked</h4>
+
 <% @my_bookings.each do |booking| %>
-<ul>
-  <li>
-    <%= booking.moped.name %>
-    £<%= booking.moped.price %>
-  </li>
-</ul>
+  <div class="container"></div>
+    <div class="card-booking">
+      <img src="/open-component/images/vespa.jpg"/>
+      <div class="card-booking-moped-infos">
+        <div>
+          <h2><%= booking.moped.name %></h2>
+          <p><%= booking.moped.description %></p>
+        </div>
+        <div>
+          <h2><%= booking.start_date%> - <%= booking.end_date %></h2>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
