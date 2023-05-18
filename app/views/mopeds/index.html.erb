@@ -1,2 +1,14 @@
 <h1>Mopeds#index</h1>
 <p>Find me in app/views/mopeds/index.html.erb</p>
+
+<% @mopeds.each do |moped| %>
+  <p><strong>Name:</strong> <%= moped.name %></p>
+  <p><strong>Color:</strong> <%= moped.color %></p>
+  <p><strong>Price:</strong> <%= moped.price %></p>
+  <p><strong>Description:</strong> <%= moped.description %></p>
+  <p><strong>Number of Passengers:</strong> <%= moped.n_of_passengers %></p>
+<% end %>
+
+<%= link_to "New Moped", new_moped_path %>
+
+<p>Page <%= @current_page %> of <%= @total_pages %></p>

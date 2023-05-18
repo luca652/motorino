@@ -4,7 +4,7 @@ class CreateBookings < ActiveRecord::Migration[7.0]
       t.date :start_date
       t.date :end_date
       t.references :user, null: false, foreign_key: true
-      t.references :moped, null: false, foreign_key: true
+      t.references :moped, null: false, foreign_key: { on_delete: :cascade } # Add the on_delete option here
 
       t.timestamps
     end

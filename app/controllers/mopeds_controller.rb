@@ -1,9 +1,9 @@
 class MopedsController < ApplicationController
-
   def show
     @moped = Moped.find(params[:id])
     @previous_moped = Moped.where("id < ?", @moped.id).last
     @next_moped = Moped.where("id > ?", @moped.id).first
+    @total_mopeds = Moped.count
     @booking = Booking.new
   end
 
@@ -20,9 +20,33 @@ class MopedsController < ApplicationController
     end
   end
 
+  def destroy
+    @moped = Moped.find(params[:id])
+    @moped.bookings.destroy_all
+    @moped.destroy
+    redirect_to root_path, status: :see_other
+  end
+
+  def edit
+    @moped = Moped.find(params[:id])
+  end
+
+  def update
+    @moped = Moped.find(params[:id])
+    if @moped.update(moped_params)
+      redirect_to moped_path(@moped)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+
   private
 
-  def moped_params
-    params.require(:moped).permit(:name, :color, :description, :price, :n_of_passengers, :user_id)
-  end
+
+
+def moped_params
+  params.require(:moped).permit(:name, :color, :description, :price, :n_of_passengers)
+end
+
 end
