@@ -1,13 +1,18 @@
 class MopedsController < ApplicationController
 <<<<<<< HEAD
+<<<<<<< HEAD
   def show
     @moped = Moped.find(params[:id])
     @previous_moped = Moped.where("id < ?", @moped.id).last
     @next_moped = Moped.where("id > ?", @moped.id).first
 =======
+=======
+>>>>>>> master
 
   def show
-    
+    @moped = Moped.find(params[:id])
+    @previous_moped = Moped.where("id < ?", @moped.id).last
+    @next_moped = Moped.where("id > ?", @moped.id).first
   end
 
   def new
@@ -27,6 +32,9 @@ class MopedsController < ApplicationController
 
   def moped_params
     params.require(:moped).permit(:name, :color, :description, :price, :n_of_passengers, :user_id)
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
   end
 end
