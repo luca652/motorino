@@ -18,7 +18,7 @@
           <p><%= moped.description %></p>
         </div>
         <div>
-          <% if moped.bookings.nil? %>
+          <% if moped.bookings == [] %>
             <p>No bookings yet</p>
           <% else %>
           <p>Bookings:</p>
