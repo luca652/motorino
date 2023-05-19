@@ -21,6 +21,15 @@ class BookingsController < ApplicationController
     @my_mopeds = Moped.where(user: current_user)
   end
 
+  def confirmed
+    @moped = Moped.find(params[:moped_id])
+    @booking = Booking.find(params[:booking_id])
+    @booking.moped = @moped
+    @booking.confirmed = true
+    @booking.save
+    redirect_to my_mopeds_path(current_user)
+  end
+
   private
 
   def booking_params
