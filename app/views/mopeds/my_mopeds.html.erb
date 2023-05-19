@@ -1,11 +1,12 @@
 <br>
 <br>
 <br>
-<h1>My mopeds</h1>
-<br>
-
-<div class="btn-add-moped">
+<div>
+  <h1>My mopeds</h1>
+  <div class="btn-add-moped">
     <%= link_to "Add a new moped", new_moped_path, class: "btn btn-success" %>
+</div>
+
 </div>
 
 <% @my_mopeds.each do |moped| %>
