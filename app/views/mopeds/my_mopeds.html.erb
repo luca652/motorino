@@ -14,12 +14,17 @@
       <img src="/open-component/images/vespa.jpg"/>
       <div class="card-booking-moped-infos">
         <div>
-          <h2><%= moped.name %></h2>
+          <h2><%= link_to moped.name, moped_path(moped) %></h2>
           <p><%= moped.description %></p>
         </div>
         <div>
-          <% moped.bookings.each do |booking|%>
-            <h2> <%= booking.start_date %> - <%= booking.end_date %></h2>
+          <% if moped.bookings.nil? %>
+            <p>No bookings yet</p>
+          <% else %>
+          <p>Bookings:</p>
+            <% moped.bookings.each do |booking|%>
+              <h2> <%= booking.start_date %> - <%= booking.end_date %></h2>
+            <% end %>
           <% end %>
         </div>
       </div>
