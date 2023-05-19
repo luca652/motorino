@@ -1,0 +1,22 @@
+.container {
+  display: inline;
+}
+
+.container h1{
+  margin-left: 24px
+}
+
+.btn-flat {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  padding: 0px, 8px;
+  margin: 0, 8px, 8px;
+  border-radius: 20px;
+  background: $blue;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: $white;
+  color: $blue;
+}

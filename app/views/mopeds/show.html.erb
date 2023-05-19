@@ -1,28 +1,47 @@
-<h1>Mopeds</h1>
+<br>
+<br>
+<br>
+<div class = "container">
 <h1>Moped Details</h1>
-<p><strong>Name:</strong> <%= @moped.name %></p>
-<p><strong>Color:</strong> <%= @moped.color %></p>
-<p><strong>Price:</strong> <%= @moped.price %></p>
-<p><strong>Description:</strong> <%= @moped.description %></p>
-<p><strong>Number of Passengers:</strong> <%= @moped.n_of_passengers %></p>
 
-<% if @previous_moped %>
-  <%= link_to "Back", moped_path(@previous_moped) %>
-<% end %>
+<div class="container-booking">
+  <div class="card-booking">
+    <img src="/open-component/images/vespa.jpg"/>
+      <div class="card-booking-moped-infos">
+        <p><strong>Name:</strong> <%= @moped.name %></p>
+        <p><strong>Color:</strong> <%= @moped.color %></p>
+        <p><strong>Price:</strong> <%= @moped.price %></p>
+        <p><strong>Description:</strong> <%= @moped.description %></p>
+        <p><strong>Number of Passengers:</strong> <%= @moped.n_of_passengers %></p>
+      </div>
+  </div>
+</div>
 
-<% if @next_moped %>
-  <%= link_to "Next", moped_path(@next_moped) %>
-<% end %>
+    <% if @previous_moped %>
+      <%= link_to "Back", moped_path(@previous_moped), class: "btn btn-flat"%>
+    <% end %>
 
-<%= link_to "Return to home", root_path %>
+    <% if @next_moped %>
+      <%= link_to "Next", moped_path(@next_moped), class: "btn btn-flat"%>
+    <% end %>
 
-<p>Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
+    <%= link_to "Return to home", root_path, class: "btn btn-flat"%>
 
 
-<%= simple_form_for [@moped, @booking] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :moped_id, value: @moped.id %>
-  <%= f.submit "Book" %>
-<% end %>
+<div class = "container-booking">
+  <div class="card-booking">
+    <p>Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
+    <br>
+    <div class="card-booking-moped-infos">
+      <%= simple_form_for [@moped, @booking] do |f| %>
+        <%= render 'shared/error', object: @booking %>
+        <%= f.input :start_date,  :as => :datepicker %>
+        <%= f.input :end_date, :as => :datepicker %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :moped_id, value: @moped.id %>
+        <%= f.submit "Book", class: "btn btn-flat"%>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>

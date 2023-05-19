@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to my_bookings_path(current_user)
     else
-      render "show"
+      render :new
     end
   end
 

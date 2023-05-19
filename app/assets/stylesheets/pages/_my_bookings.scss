@@ -1,5 +1,10 @@
 .container {
-  display: flex;
+  display: inline;
+}
+
+.container h4 {
+  margin-left: 24px;
+  color: $blue
 }
 
 .card-booking {
@@ -9,6 +14,8 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 24px;
+  margin-left: 24px;
+  margin-top: 24px;
 }
 
 .card-booking > img {
@@ -43,4 +50,15 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.btn-flat {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  padding: 0px, 8px;
+  margin: 8px, 8px, 8px;
+  margin-left: 24px;
+  border-radius: 20px;
+  background: $blue;
+  transition: background 0.3s ease;
 }
