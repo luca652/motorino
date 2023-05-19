@@ -14,7 +14,7 @@ class MopedsController < ApplicationController
   def create
     @moped = Moped.new(moped_params)
     if @moped.save
-      redirect_to moped_path(@moped)
+      redirect_to my_mopeds_path(current_user)
     else
       render :new, status: :unprocessable_entity
     end
@@ -41,7 +41,7 @@ class MopedsController < ApplicationController
   end
 
   def my_mopeds
-    @my_mopeds = Moped.where(user: current_user)
+    @my_mopeds = Moped.where(user: current_user).order(created_at: :desc)
   end
 
   private
