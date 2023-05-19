@@ -1,4 +1,12 @@
-<h4>Mopeds I have rented out</h4>
+<br>
+<br>
+<br>
+<h1>My mopeds</h1>
+<br>
+
+<div class="btn-add-moped">
+    <%= link_to "Add a new moped", new_moped_path, class: "btn btn-success" %>
+</div>
 
 <% @my_mopeds.each do |moped| %>
   <div class="container"></div>
@@ -10,10 +18,8 @@
           <p><%= moped.description %></p>
         </div>
         <div>
-          <% if moped.booking? %>
-            <% moped.bookings.each do |booking|%>
-              <h2> <%= booking.start_date %> - <%= booking.end_date %></h2>
-            <% end %>
+          <% moped.bookings.each do |booking|%>
+            <h2> <%= booking.start_date %> - <%= booking.end_date %></h2>
           <% end %>
         </div>
       </div>
