@@ -16,7 +16,8 @@ class BookingsController < ApplicationController
   end
 
   def my_bookings
-    @my_bookings = Booking.where(user: current_user)
+    @my_bookings = Booking.where(user: current_user, confirmed: true).order(created_at: :desc)
+    @my_booking_requests = Booking.where(user: current_user, confirmed: false).order(created_at: :desc)
     @my_mopeds = Moped.where(user: current_user)
   end
 
