@@ -15,15 +15,17 @@
       <div class="card-booking-moped-infos">
         <div>
           <h2><%= link_to moped.name, moped_path(moped) %></h2>
-          <p><%= moped.description %></p>
+          <p><%= link_to "Edit", edit_moped_path(moped) %> </p>
+          <p><%= link_to "Delete", moped_path(moped), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
         </div>
         <div>
-          <% if moped.bookings == [] %>
+          <% if moped.bookings.empty? %>
             <p>No bookings yet</p>
           <% else %>
           <p>Bookings:</p>
             <% moped.bookings.each do |booking|%>
-              <h2> <%= booking.start_date %> - <%= booking.end_date %></h2>
+              <h2><%= booking.user.first_name %> <%= booking.user.last_name %></h2>
+              <p><%= booking.start_date %> - <%= booking.end_date %></p>
             <% end %>
           <% end %>
         </div>

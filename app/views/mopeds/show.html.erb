@@ -17,8 +17,6 @@
 <%= link_to "Return to home", root_path %>
 
 <p>Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
-<%= link_to "Edit", edit_moped_path(@moped) %> <!-- Add this line -->
-<%= link_to "Delete", moped_path(@moped), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 
 
 <%= simple_form_for [@moped, @booking] do |f| %>
@@ -28,9 +26,3 @@
   <%= f.hidden_field :moped_id, value: @moped.id %>
   <%= f.submit "Book" %>
 <% end %>
-
-
-
-
-
-
