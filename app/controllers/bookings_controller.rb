@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def new
     @moped = Moped.find(params[:moped_id])
     @booking = Booking.new
@@ -17,14 +16,18 @@ class BookingsController < ApplicationController
   end
 
   def my_bookings
-    @my_bookings = Booking.where(user: current_user)
+    @my_bookings = Booking.where(user: current_user, confirmed: true).order(created_at: :desc)
+    @my_booking_requests = Booking.where(user: current_user, confirmed: false).order(created_at: :desc)
     @my_mopeds = Moped.where(user: current_user)
   end
 
-  def bookings?
-    if @moped.bookings
-      true
-    end
+  def confirmed
+    @moped = Moped.find(params[:moped_id])
+    @booking = Booking.find(params[:booking_id])
+    @booking.moped = @moped
+    @booking.confirmed = true
+    @booking.save
+    redirect_to my_mopeds_path(current_user)
   end
 
   private
