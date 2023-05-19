@@ -21,6 +21,12 @@ class BookingsController < ApplicationController
     @my_mopeds = Moped.where(user: current_user)
   end
 
+  def bookings?
+    if @moped.bookings
+      true
+    end
+  end
+
   private
 
   def booking_params

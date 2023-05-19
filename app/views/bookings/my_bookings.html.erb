@@ -19,25 +19,3 @@
     </div>
   </div>
 <% end %>
-
-
-<h4>Mopeds I have rented out</h4>
-
-<% @my_mopeds.each do |moped| %>
-  <div class="container"></div>
-    <div class="card-booking">
-      <img src="/open-component/images/vespa.jpg"/>
-      <div class="card-booking-moped-infos">
-        <div>
-          <h2><%= moped.name %></h2>
-          <p><%= moped.description %></p>
-        </div>
-        <div>
-          <% moped.bookings.each do |booking|%>
-          <h2> <%= booking.start_date %> - <%= booking.end_date %></h2>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>

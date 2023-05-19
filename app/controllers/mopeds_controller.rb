@@ -40,6 +40,11 @@ class MopedsController < ApplicationController
     end
   end
 
+
+  def my_mopeds
+    @my_mopeds = Moped.where(user: current_user)
+  end
+
   private
 
   def moped_params
