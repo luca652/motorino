@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def new
     @moped = Moped.find(params[:moped_id])
     @booking = Booking.new
@@ -19,12 +18,6 @@ class BookingsController < ApplicationController
   def my_bookings
     @my_bookings = Booking.where(user: current_user)
     @my_mopeds = Moped.where(user: current_user)
-  end
-
-  def bookings?
-    if @moped.bookings
-      true
-    end
   end
 
   private
