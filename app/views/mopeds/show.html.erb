@@ -32,11 +32,11 @@
   <div class="card-booking">
     <p>Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
     <br>
-    <div class="card-booking-moped-infos">
+    <div class="card-booking-moped-infos" data-controller="datepicker">
       <%= simple_form_for [@moped, @booking] do |f| %>
         <%= render 'shared/error', object: @booking %>
-        <%= f.input :start_date,  :as => :datepicker %>
-        <%= f.input :end_date, :as => :datepicker %>
+        <%= f.input :start_date, as: :datepicker %>
+        <%= f.input :end_date, as: :datepicker %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.hidden_field :moped_id, value: @moped.id %>
         <%= f.submit "Book", class: "btn btn-flat"%>
