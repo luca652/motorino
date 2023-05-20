@@ -3,4 +3,5 @@ class Moped < ApplicationRecord
   has_many :bookings
   has_many :users, through: :bookings
   validates :name, :color, :description, :price, :n_of_passengers, presence: true
+  has_one_attached :image
 end
