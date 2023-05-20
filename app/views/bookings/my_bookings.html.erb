@@ -1,18 +1,26 @@
 <h1 class="margin-top">Mopeds I have booked</h1>
 
-<% @my_bookings.each do |booking| %>
-  <div class="container"></div>
-    <div class="card-booking">
-      <img src="/open-component/images/vespa.jpg"/>
-      <div class="card-booking-moped-infos">
-        <div>
-          <h2><%= booking.moped.name %></h2>
-          <p><%= booking.moped.description %></p>
-        </div>
-        <div>
-          <h2><%= booking.start_date%> - <%= booking.end_date %></h2>
+<br>
+<br>
+<br>
+<br>
+<div class= "container">
+  <h4>Booking Requests</h4>
+
+    <% @my_booking_requests.each do |booking| %>
+      <div class="container-bookinng">
+        <div class="card-booking">
+          <img src=""/>
+          <div class="card-booking-moped-infos">
+            <div>
+              <h2><%= booking.moped.name %></h2>
+              <p><%= booking.moped.description %></p>
+            </div>
+            <div>
+              <h2><%= booking.start_date%> - <%= booking.end_date %></h2>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-<% end %>
+    <% end %>
+</div>

@@ -1,8 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)) ">
     <h1><strong>Motorino</strong>, let's ride!</h1>
     <p>Challenge the traffic. Discover an exciting way to explore the world.</p>
-    <a class="btn btn-flat" href="#">Choose a date</a>
-  </div>
 </div>
 
 <h2 style="margin-left: 15px;">Mopeds</h2>
@@ -10,7 +8,7 @@
 <ul><% @mopeds.each do |moped| %>
   <div class="card-moped flex-container">
     <div class="card-moped-infos flex-item">
-      <li>Name: <%= moped.name %></li>
+      <h4><%= link_to moped.name, moped_path(moped) %></h4>
       <li>Color: <%= moped.color%></li>
       <li>Description: <%= moped.description%></li>
       <li>No of passengers <%= moped.n_of_passengers%></li>
