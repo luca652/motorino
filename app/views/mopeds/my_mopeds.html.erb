@@ -1,39 +1,38 @@
 <br>
 <br>
 <br>
-<div>
-  <h1>My mopeds</h1>
-  <div class="btn-add-moped">
-    <%= link_to "Add a new moped", new_moped_path, class: "btn btn-success" %>
-</div>
+<div class = "container-add-moped">
+  <h4>My mopeds</h4>
 
-</div>
-
-<% @my_mopeds.each do |moped| %>
-  <div class="container"></div>
-    <div class="card-booking">
-      <img src="/open-component/images/vespa.jpg"/>
-      <div class="card-booking-moped-infos">
-        <div>
-          <h2><%= link_to moped.name, moped_path(moped) %></h2>
-          <p><%= link_to "Edit", edit_moped_path(moped) %> </p>
-          <p><%= link_to "Delete", moped_path(moped), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
-        </div>
-        <div>
-          <% if moped.bookings.empty? %>
-            <p>No bookings yet</p>
-          <% else %>
-          <p>Bookings:</p>
-            <% moped.bookings.each do |booking|%>
-              <h2><%= booking.user.first_name %> <%= booking.user.last_name %></h2>
-              <p><%= booking.start_date %> - <%= booking.end_date %></p>
-              <% if booking.confirmed == false %>
-              <%= link_to "Confirm Booking", moped_booking_confirmed_path(booking.moped_id, booking.id) %>
+  <% @my_mopeds.each do |moped| %>
+    <div class="container">
+      <div class="card-booking">
+        <img src="/open-component/images/vespa.jpg"/>
+        <div class="card-booking-moped-infos">
+          <div>
+            <h2><%= link_to moped.name, moped_path(moped) %></h2>
+            <p><%= link_to "Edit", edit_moped_path(moped) %> </p>
+            <p><%= link_to "Delete", moped_path(moped), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+          </div>
+          <div>
+            <% if moped.bookings.empty? %>
+              <p>No bookings yet</p>
+            <% else %>
+            <p>Bookings:</p>
+              <% moped.bookings.each do |booking|%>
+                <h2><%= booking.user.first_name %> <%= booking.user.last_name %></h2>
+                <p><%= booking.start_date %> - <%= booking.end_date %></p>
+                <% if booking.confirmed == false %>
+                <%= link_to "Confirm Booking", moped_booking_confirmed_path(booking.moped_id, booking.id) %>
+                <% end %>
               <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
     </div>
+  <% end %>
+  <div class="btn-add-moped">
+      <%= link_to "Add a new moped", new_moped_path, class: "btn btn-flat" %>
   </div>
-<% end %>
+</div>
