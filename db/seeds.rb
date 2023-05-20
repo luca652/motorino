@@ -24,7 +24,7 @@ end
 
 15.times do
   user_id = rand(1..4)
-  moped_id = rand(1..40)
+  moped_id = rand(1..20)
   start_date = "2023/3/15"
   end_date = "2023/2/17"
   Booking.create!(user_id:, moped_id:, start_date:, end_date:)
