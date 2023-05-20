@@ -5,9 +5,11 @@ class Booking < ApplicationRecord
   validates :end_date, presence: true
   validate :start_before_end
 
+  private
+
   def start_before_end
-    if start_date > end_date
-      errors.add(:start_date, "Start date cannot be later than end date.")
-    end
+    return if end_date.blank? || start_date.blank?
+
+    errors.add(:start_date, " cannot be later than end date.") if start_date > end_date
   end
 end
