@@ -7,10 +7,10 @@
   <% @my_mopeds.each do |moped| %>
     <div class="container">
       <div class="card-booking">
-        <img src="/open-component/images/vespa.jpg"/>
+        <img src=""/>
         <div class="card-booking-moped-infos">
           <div>
-            <h2><%= link_to moped.name, moped_path(moped) %></h2>
+            <h2><%= moped.name %></h2>
             <p><%= link_to "Edit", edit_moped_path(moped) %> </p>
             <p><%= link_to "Delete", moped_path(moped), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
           </div>
