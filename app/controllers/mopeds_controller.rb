@@ -3,8 +3,12 @@ class MopedsController < ApplicationController
     @moped = Moped.find(params[:id])
     @previous_moped = Moped.where("id < ?", @moped.id).last
     @next_moped = Moped.where("id > ?", @moped.id).first
+
     @total_mopeds = Moped.count
     @booking = Booking.new
+    @moped.image.attach(io: URI.open(@moped.image_url), filename: 'image.jpg') if @moped.image_url.present?
+
+
   end
 
   def new

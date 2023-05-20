@@ -51,6 +51,8 @@ gem "sassc-rails"
 
 # Added Devise gem for authentication
 gem "devise"
+gem "cloudinary"
+
 
 # Added faker gem for seeding database
 gem 'faker'

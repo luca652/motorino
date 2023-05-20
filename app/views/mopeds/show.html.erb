@@ -1,47 +1,68 @@
+<div class="container moped-details">
+  <h1>Moped Details</h1>
 <br>
 <br>
-<br>
-<div class = "container">
-<h1>Moped Details</h1>
 
-<div class="container-booking">
-  <div class="card-booking">
-    <img src="/open-component/images/vespa.jpg"/>
-      <div class="card-booking-moped-infos">
-        <p><strong>Name:</strong> <%= @moped.name %></p>
-        <p><strong>Color:</strong> <%= @moped.color %></p>
-        <p><strong>Price:</strong> <%= @moped.price %></p>
-        <p><strong>Description:</strong> <%= @moped.description %></p>
-        <p><strong>Number of Passengers:</strong> <%= @moped.n_of_passengers %></p>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="container-booking">
+        <div class="card-booking">
+          <div class="card-booking-moped-infos">
+            <p><strong>Name:</strong> <%= @moped.name %></p>
+            <p><strong>Color:</strong> <%= @moped.color %></p>
+            <p><strong>Price:</strong> <%= @moped.price %></p>
+          </div>
+        </div>
       </div>
-  </div>
-</div>
+    </div>
 
-    <% if @previous_moped %>
-      <%= link_to "Back", moped_path(@previous_moped), class: "btn btn-flat"%>
-    <% end %>
+    <div class="col-md-6">
+      <div class="container-booking">
+        <div class="card-booking">
+          <div class="row">
+            <div class="col-8">
+              <div class="moped-image-container">
+              <%= image_tag "https://res.cloudinary.com/da4ovnl8a/image/upload/v1684582255/nryrt6fglzkda8aa5mfk.jpg", class: "moped-image", width: 200, height: 200 %>
 
-    <% if @next_moped %>
-      <%= link_to "Next", moped_path(@next_moped), class: "btn btn-flat"%>
-    <% end %>
-
-    <%= link_to "Return to home", root_path, class: "btn btn-flat"%>
-
-
-<div class = "container-booking">
-  <div class="card-booking">
-    <p>Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
-    <br>
-    <div class="card-booking-moped-infos">
-      <%= simple_form_for [@moped, @booking] do |f| %>
-        <%= render 'shared/error', object: @booking %>
-        <%= f.input :start_date,  :as => :datepicker %>
-        <%= f.input :end_date, :as => :datepicker %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.hidden_field :moped_id, value: @moped.id %>
-        <%= f.submit "Book", class: "btn btn-flat"%>
-      <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+
+  <div class="container-booking">
+    <div class="card-booking">
+      <p><strong>Description:</strong> <%= @moped.description %></p>
+      <p><strong>Number of Passengers:</strong> <%= @moped.n_of_passengers %></p>
+    </div>
+  </div>
+
+  <% if @previous_moped %>
+    <%= link_to "Back", moped_path(@previous_moped), class: "btn btn-flat" %>
+  <% end %>
+
+  <% if @next_moped %>
+    <%= link_to "Next", moped_path(@next_moped), class: "btn btn-flat" %>
+  <% end %>
+
+  <%= link_to "Return to home", root_path, class: "btn btn-flat" %>
+
+  <div class="container-booking">
+    <div class="card-booking">
+      <p>Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
+      <br>
+      <div class="card-booking-moped-infos">
+        <%= simple_form_for [@moped, @booking] do |f| %>
+          <%= render 'shared/error', object: @booking %>
+          <%= f.input :start_date, as: :datepicker %>
+          <%= f.input :end_date, as: :datepicker %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :moped_id, value: @moped.id %>
+          <%= f.submit "Book", class: "btn btn-flat" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
