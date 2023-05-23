@@ -1,15 +1,21 @@
 .banner {
   background-image: asset-url("vespe");
   background-size: cover;
-  height: 800px;
+  height: 650px;
+  padding: 50px;
 }
 
-// .banner-info {
-//   display: flex;
-//   flex-direction: column;
-// }
+.banner-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 450px;
+  margin-left: 100px;
+  margin-top: 100px;
+}
 
 .logo-image {
+  height: 250px;
   border-radius: 5px;
 }
 
