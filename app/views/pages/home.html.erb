@@ -1,7 +1,11 @@
-<div class="container-banner" >
+
   <div class="banner">
-    <%= image_tag "logo-yellow.jpg", height: 300%>
-    <p>Rent a moped. Beat the traffic. Ride like a local. </p>
+    <div class="container">
+      <%= image_tag "logo-yellow.jpg", height: 300, class: "logo-image"%>
+      <p>Rent a moped. Beat the traffic. Ride like a local. </p>
+      <%= link_to "Find a moped", mopeds_path, class: "btn btn-flat" %>
+      <%= link_to "List a moped", new_moped_path(current_user), class: "btn btn-flat" %>
+    </div>
   </div>
-</div>
+
 <h2 style="margin-left: 15px;">Mopeds</h2>
