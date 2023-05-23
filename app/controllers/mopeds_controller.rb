@@ -1,4 +1,9 @@
 class MopedsController < ApplicationController
+  def index
+    @users = User.all
+    @mopeds = Moped.all
+  end
+
   def show
     @moped = Moped.find(params[:id])
     @previous_moped = Moped.where("id < ?", @moped.id).last
@@ -7,8 +12,6 @@ class MopedsController < ApplicationController
     @total_mopeds = Moped.count
     @booking = Booking.new
     @moped.image.attach(io: URI.open(@moped.image_url), filename: 'image.jpg') if @moped.image_url.present?
-
-
   end
 
   def new
