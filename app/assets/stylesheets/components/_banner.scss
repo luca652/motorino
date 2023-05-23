@@ -1,7 +1,11 @@
 .banner {
-  background-image: asset-url("banner");
+  background-image: asset-url("vespe");
   background-size: cover;
-  height: 600px;
+  height: 800px;
+}
+
+.logo-image {
+  margin-left: 50px;
 }
 
 // .container-banner p {
