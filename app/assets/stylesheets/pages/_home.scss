@@ -1,9 +1,13 @@
 // Specific CSS for your home-page
 
-h1, h2 {
+h1 {
   justify-content: center;
   color: $blue;
   font-family: $headers-font;
+}
+
+h2 {
+  color: white;
 }
 
 .container-title {
