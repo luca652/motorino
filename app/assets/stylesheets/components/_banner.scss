@@ -19,6 +19,20 @@
   border-radius: 5px;
 }
 
+.banner-tagline {
+  align-items: center;
+}
+.banner h2 {
+  color: $off-white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding-left: 15px;
+}
+
+.banner-links {
+  height: 40px;
+  align-items: center;
+  padding-left: 30px;
+}
 // .container-banner p {
 //   color: $blue;
 // }

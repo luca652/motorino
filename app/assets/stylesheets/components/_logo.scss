@@ -1,8 +1,7 @@
 .logo {
-  background-image: asset-url("navbar-logo-yellow");
+  background-image: asset-url("navbar-logo-yellow-circle");
   background-size: cover;
-  width: 140px ;
+  width: 50px ;
   height: 50px;
-  margin: solid $off-white 1px;
-  border-radius: 5px;
+  border-radius: 50%;
 }
