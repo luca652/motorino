@@ -30,6 +30,9 @@ gem "jbuilder"
 # Gem simple-form-datepicker
 gem "simple-form-datepicker"
 
+# Gem geocoder
+gem "geocoder"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
