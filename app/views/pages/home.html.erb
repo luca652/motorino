@@ -1,17 +1,23 @@
 
   <div class="banner">
+  <div class="banner-content">
     <div class="banner-info">
       <div>
         <%= image_tag "logo-yellow.jpg", height: 300, class: "logo-image"%>
       </div>
-      <div>
+      <div class="banner-taglines">
         <h2>Rent a moped.</h2>
         <h2>Beat the traffic. </h2>
         <h2>Ride like a local. </h2>
       </div>
-      <div class="banner-links">
-        <%= link_to "Find a moped", mopeds_path, class: "btn btn-flat" %>
-        <%= link_to "List a moped", new_moped_path(current_user), class: "btn btn-flat" %>
+    </div>
+    <div class="banner-links">
+      <div class="banner-link-1">
+        <%= link_to "Find a moped", mopeds_path, class: "btn btn-success-blue" %>
       </div>
+      <div class="banner-link-2">
+        <%= link_to "List a moped", new_moped_path(current_user), class: "btn btn-success-blue" %>
+    </div>
+    </div>
     </div>
   </div>
