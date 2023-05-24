@@ -2,11 +2,11 @@
   padding: 150px;
   background-image: asset-url("vespe");
   background-size: cover;
-  height: 650px;
+  height: 800px;
 }
 
 .banner-content {
-  padding-top: 140px;
+  padding-top: 220px;
   padding-left: 100px;
 }
 
@@ -48,3 +48,7 @@
 // .container-banner p {
 //   color: $blue;
 // }
+
+.btn-success-blue {
+  border-style: solid black 1px;
+}
