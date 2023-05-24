@@ -24,6 +24,7 @@
                 <p><%= booking.start_date %> - <%= booking.end_date %></p>
                 <% if booking.confirmed == false %>
                 <%= link_to "Confirm Booking", moped_booking_confirmed_path(booking.moped_id, booking.id) %>
+                <%= link_to "Decline Booking", moped_booking_declined_path(booking.moped_id, booking.id) %>
                 <% end %>
               <% end %>
             <% end %>
