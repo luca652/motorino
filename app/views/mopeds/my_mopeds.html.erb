@@ -22,8 +22,11 @@
               <% moped.bookings.each do |booking|%>
                 <h2><%= booking.user.first_name %> <%= booking.user.last_name %></h2>
                 <p><%= booking.start_date %> - <%= booking.end_date %></p>
-                <% if booking.confirmed == false %>
+                <% if booking.confirmed == false && booking.declined == false%>
                 <%= link_to "Confirm Booking", moped_booking_confirmed_path(booking.moped_id, booking.id) %>
+                <%= link_to "Decline Booking", moped_booking_declined_path(booking.moped_id, booking.id) %>
+                <% elsif booking.declined == true%>
+                <p>Declined</p>
                 <% end %>
               <% end %>
             <% end %>
