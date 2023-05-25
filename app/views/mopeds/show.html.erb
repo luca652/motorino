@@ -45,9 +45,10 @@
     <% end %>
   </div>
 
-  <div class="container-booking mt-4">
+  <center><div class="container-booking mt-4">
     <div class="card-booking">
       <p class="mb-0">Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
+
       <div class="card-booking-moped-infos" data-controller="datepicker">
         <%= simple_form_for [@moped, @booking] do |f| %>
           <%= render 'shared/error', object: @booking %>
