@@ -14,5 +14,6 @@
       <li>Price: £<%= moped.price %></li>
       <li>Owned by <%= moped.user.first_name %></li>
     </div>
+    <%= image_tag "#{moped.image_url}", height: 300, class: "moped-image"%>
   </div>
 <% end %></ul>
