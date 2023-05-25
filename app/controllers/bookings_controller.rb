@@ -38,6 +38,7 @@ class BookingsController < ApplicationController
     @booking.save
     redirect_to my_mopeds_path(current_user)
   end
+  
   private
 
   def booking_params
