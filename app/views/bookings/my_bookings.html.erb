@@ -1,43 +1,52 @@
 <br>
 <br>
 
-<div class= "container">
-  <h4>Booking Requests</h4>
-
-    <% @my_booking_requests.each do |booking| %>
-      <div class="container-bookinng">
-        <div class="card-booking">
-          <img src=""/>
-          <div class="card-booking-moped-infos">
-            <div>
-              <h2><%= booking.moped.name %></h2>
-              <p><%= booking.moped.description %></p>
-            </div>
-            <div>
-              <h2> <em>Pending</em></h2>
-              <h2><%= booking.start_date%> - <%= booking.end_date %></h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-
-    <h4>Confirmed Bookings</h4>
-
-    <% @my_bookings.each do |booking| %>
-      <div class="container-bookinng">
-        <div class="card-booking">
-          <img src=""/>
-          <div class="card-booking-moped-infos">
-            <div>
-              <h2><%= booking.moped.name %></h2>
-              <p><%= booking.moped.description %></p>
-            </div>
-            <div>
-              <h2><%= booking.start_date%> - <%= booking.end_date %></h2>
+<div class="tab-container">
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-bo" aria-selected="true">Pending</button>
+      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Confirmed</button>
+      <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Declined</button>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <% @my_booking_requests.each do |booking| %>
+        <div class="container-booking">
+          <div class="card-booking">
+            <%= image_tag "#{booking.moped.image_url}", class: "moped-image"%>
+            <div class="card-booking-moped-infos">
+              <div>
+                <h2><%= booking.moped.name %></h2>
+                <p>£<%= booking.moped.price %></p>
+              </div>
+              <div>
+                <h4> Pending</h4>
+                <p><%= booking.start_date%> - <%= booking.end_date %></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <% @my_bookings.each do |booking| %>
+        <div class="container-booking">
+          <div class="card-booking">
+            <%= image_tag "#{booking.moped.image_url}", class: "moped-image"%>
+            <div class="card-booking-moped-infos">
+              <div>
+                <h2><%= booking.moped.name %></h2>
+                <p>£<%= booking.moped.price %></p>
+              </div>
+              <div>
+                <h2><%= booking.start_date%> - <%= booking.end_date %></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+  </div>
 </div>
