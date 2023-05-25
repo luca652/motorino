@@ -1,63 +1,62 @@
-<div class="container moped-details">
-  <h1>Moped Details</h1>
-<br>
-<br>
+<div class="container text-center">
+  <div class="card moped-details">
+    <div class="card-body">
+      <h1 class="card-title">Moped Details</h1>
 
-<div>
-  <div class="row">
-    <div class="col-md-3">
-      <div class="container-booking">
-        <div class="card-booking">
-          <div class="card-booking-moped-infos">
+      <div class="card-booking-moped-infos">
+        <!-- Row for the information above the image -->
+        <div class="row">
+          <div class="col">
             <p><strong>Name:</strong> <%= @moped.name %></p>
+          </div>
+          <div class="col">
             <p><strong>Color:</strong> <%= @moped.color %></p>
+          </div>
+          <div class="col">
             <p><strong>Price:</strong> <%= @moped.price %></p>
           </div>
         </div>
-      </div>
-    </div>
- </div>
-      <div class="container-booking">
-        <div class="card-booking">
-          <div class="row">
 
-              <div class="moped-image-container">
-              <%= image_tag "#{@moped.image_url}", class: "moped-image", width: 200, height: 200 %>
+        <div class="moped-image-container">
+          <!-- Image displayed here -->
+          <%= image_tag "#{@moped.image_url}", class: "moped-image", width: 200, height: 200 %>
+        </div>
 
-              </div>
-
+        <!-- Row for the information below the image -->
+        <div class="row">
+          <div class="col">
+            <p><strong>Description:</strong> <%= @moped.description %></p>
+          </div>
+          <div class="col">
+            <p><strong>Number of Passengers:</strong> <%= @moped.n_of_passengers %></p>
           </div>
         </div>
       </div>
-</div>
-
-  <div class="container-booking">
-    <div class="card-booking">
-      <p><strong>Description:</strong> <%= @moped.description %></p>
-      <p><strong>Number of Passengers:</strong> <%= @moped.n_of_passengers %></p>
     </div>
   </div>
 
-  <% if @previous_moped %>
-    <%= link_to "Back", moped_path(@previous_moped), class: "btn btn-flat" %>
-  <% end %>
+  <div class="mt-4">
+    <% if @previous_moped %>
+      <%= link_to "Back", moped_path(@previous_moped), class: "btn btn-primary" %>
+    <% end %>
 
-  <% if @next_moped %>
-    <%= link_to "Next", moped_path(@next_moped), class: "btn btn-flat" %>
-  <% end %>
+    <% if @next_moped %>
+      <%= link_to "Next", moped_path(@next_moped), class: "btn btn-primary" %>
+    <% end %>
+  </div>
 
-  <div class="container-booking">
+  <center><div class="container-booking mt-4">
     <div class="card-booking">
-      <p>Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
-      <br>
+      <p class="mb-0">Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
+
       <div class="card-booking-moped-infos" data-controller="datepicker">
         <%= simple_form_for [@moped, @booking] do |f| %>
           <%= render 'shared/error', object: @booking %>
-          <%= f.input :start_date, as: :datepicker %>
-          <%= f.input :end_date, as: :datepicker %>
+          <%= f.input :start_date, as: :datepicker, label: "Start Date" %>
+          <%= f.input :end_date, as: :datepicker, label: "End Date" %>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :moped_id, value: @moped.id %>
-          <%= f.submit "Book", class: "btn btn-flat" %>
+          <%= f.submit "Book", class: "btn btn-success btn-block mt-3" %>
         <% end %>
       </div>
     </div>
