@@ -2,16 +2,12 @@
 <br>
 <br>
 <div class = "container-add-moped">
-  <div class="header-and-button">
-    <h4>My mopeds</h4>
-    <div class="btn-add-moped">
-      <%= link_to "Add a new moped", new_moped_path, class: "btn btn-flat" %>
-    </div>
-  </div>
+  <h4>My mopeds</h4>
+
   <% @my_mopeds.each do |moped| %>
     <div class="container">
       <div class="card-booking">
-        <img src=""/>
+        <%= image_tag "#{moped.image_url}", class: "moped-image"%>
         <div class="card-booking-moped-infos">
           <div>
             <h2><%= moped.name %></h2>
@@ -39,4 +35,7 @@
       </div>
     </div>
   <% end %>
+  <div class="btn-add-moped">
+      <%= link_to "Add a new moped", new_moped_path, class: "btn btn-flat" %>
+  </div>
 </div>
