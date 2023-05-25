@@ -1,0 +1,22 @@
+.btn-success-yellow {
+  background-color: $yellow !important;
+  border-radius: 10px !important;
+  border-style: none;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btn-success-yellow:hover {
+  background-color: #FFBF00 !important;
+
+}
+
+.btn-success-blue {
+  background-color: #0096FF;
+  border-radius: 10px !important;
+}
+
+.btn-success-blue:hover {
+  background-color: $blue !important;
+
+}
