@@ -2,8 +2,12 @@
 <br>
 <br>
 <div class = "container-add-moped">
-  <h4>My mopeds</h4>
-
+  <div class="header-and-button">
+    <h4>My mopeds</h4>
+    <div class="btn-add-moped">
+      <%= link_to "Add a new moped", new_moped_path, class: "btn btn-flat" %>
+    </div>
+  </div>
   <% @my_mopeds.each do |moped| %>
     <div class="container">
       <div class="card-booking">
@@ -32,7 +36,4 @@
       </div>
     </div>
   <% end %>
-  <div class="btn-add-moped">
-      <%= link_to "Add a new moped", new_moped_path, class: "btn btn-flat" %>
-  </div>
 </div>

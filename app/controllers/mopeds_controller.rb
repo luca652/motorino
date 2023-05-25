@@ -54,6 +54,6 @@ class MopedsController < ApplicationController
   private
 
   def moped_params
-    params.require(:moped).permit(:name, :color, :description, :price, :n_of_passengers, :user_id)
+    params.require(:moped).permit(:name, :color, :description, :price, :address, :user_id)
   end
 end
