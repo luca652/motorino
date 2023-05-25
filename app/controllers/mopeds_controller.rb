@@ -2,6 +2,14 @@ class MopedsController < ApplicationController
   def index
     @users = User.all
     @mopeds = Moped.all
+    @markers = @mopeds.geocoded.map do |moped|
+      {
+        lat: moped.latitude,
+        lng: moped.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { moped: moped }),
+        marker_html: render_to_string(partial: "marker", locals: {moped: moped})
+      }
+    end
   end
 
   def show
