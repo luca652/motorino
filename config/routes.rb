@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :mopeds do
     resources :bookings, only: [:create, :new] do
       get :confirmed
+      get :declined
     end
   end
   get "my_bookings", to: "bookings#my_bookings"

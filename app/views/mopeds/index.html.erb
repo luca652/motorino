@@ -10,21 +10,6 @@
       <li>Price: £<%= moped.price %></li>
       <li>Owned by <%= moped.user.first_name %></li>
     </div>
+    <%= image_tag "#{moped.image_url}", height: 300, class: "moped-image"%>
   </div>
 <% end %></ul>
-
-
-
-<%# <h1 class="margin-top">Mopeds#index</h1>
-
-<% @mopeds.each do |moped| %>
-  <%# <p><strong>Name:</strong> <%= moped.name %></p>
-  <%# <p><strong>Color:</strong> <%= moped.color %></p> %>
-  <%# <p><strong>Price:</strong> <%= moped.price %></p> %>
-  <%# <p><strong>Description:</strong> <%= moped.description %></p> %>
-  <%# <p><strong>Number of Passengers:</strong> <%= moped.n_of_passengers %></p> %>
-<%# <% end %> %> %>
-
-<%# <%= link_to "New Moped", new_moped_path %> %>
-
-<%# <p>Page <%= @current_page of <%= @total_pages %></p> %> %> %>

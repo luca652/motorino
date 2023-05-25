@@ -30,6 +30,15 @@ class BookingsController < ApplicationController
     redirect_to my_mopeds_path(current_user)
   end
 
+  def declined
+    @moped = Moped.find(params[:moped_id])
+    @booking = Booking.find(params[:booking_id])
+    @booking.moped = @moped
+    @booking.declined = true
+    @booking.save
+    redirect_to my_mopeds_path(current_user)
+  end
+  
   private
 
   def booking_params
