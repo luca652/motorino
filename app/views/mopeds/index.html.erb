@@ -7,7 +7,7 @@
 
 <div class = "card-moped-container-index">
     <% @mopeds.each do |moped| %>
-      <div class="card-moped-index">
+      <div class="card-moped-index" id=<%="anchor-#{moped.id}"%>>
         <div class="card-moped-index-infos">
         <%= image_tag "#{moped.image_url}", height: 100, class: "moped-image"%>
           <h5><%= link_to moped.name, moped_path(moped) %></h5>
