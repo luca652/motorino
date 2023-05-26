@@ -1,6 +1,17 @@
-.container-add-moped {
+.container {
   margin-left: 24px;
   margin-top: 24px;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  width: 650px;
+}
+
+.container-my-mopeds {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .btn-flat {
@@ -10,4 +21,62 @@
 .container-add-moped h4{
   margin-left: 24px;
   color: $blue;
+}
+
+.card-my-moped {
+  display: flex;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-size: 16px;
+  font-weight: lighter;
+  margin: 5px, 5px, 5px;
+  margin-bottom: 15px;
+  a {
+    margin-top: 10px;
+  }
+  width: 450px;
+  height: 250px;
+  border-radius: 20px;
+}
+
+.card-my-moped > img {
+  display: flex;
+  padding-top: 10px;
+  height: 80%;
+  width: 250px;
+  object-fit: contain;
+  align-items: center;
+}
+.card-my-moped-infos {
+  box-sizing: border-box;
+  padding: 16px;
+  width: 200px;
+  background: rgb(225, 236, 243);
+}
+
+h3 {
+  color: $yellow;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-evenly;
+  width: 1000px;
+
+}
+
+.card-my-booking {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-size: 16px;
+  font-weight: lighter;
+  margin: 5px, 5px, 5px;
+  margin-bottom: 15px;
+  a {
+    margin-top: 10px;
+  }
+  border-radius: 20px;
+  padding: 20px;
 }
