@@ -2,23 +2,18 @@
 <div class = "container">
 
   <div class="container-header">
-    <div>
-      <h4>My mopeds</h4>
-      <%= link_to "Add a new moped", new_moped_path, class: "btn btn-success-blue" %>
-    </div>
-    <div>
-      <h4>Bookings</h4>
-    </div>
+    <h4>My mopeds</h4>
+    <%= link_to "Add a new moped", new_moped_path, class: "btn btn-success-blue btn-new-moped" %>
   </div>
 
   <% @my_mopeds.each do |moped| %>
   <div class="container-my-mopeds">
     <div class="card-my-moped">
-      <%= image_tag "#{moped.image_url}", class: "moped-image"%>
+      <%= image_tag "#{moped.image_url}", class: "my-moped-image"%>
       <div class="card-my-moped-infos">
           <h3><%= moped.name %></h3>
-          <p><%= link_to "Edit", edit_moped_path(moped) %> </p>
-          <p><%= link_to "Delete", moped_path(moped), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+          <p><%= link_to "Edit", edit_moped_path(moped), class: "btn btn-success-blue" %> </p>
+          <p><%= link_to "Delete", moped_path(moped), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-success-blue" %></p>
       </div>
     </div>
       <div>
@@ -27,6 +22,7 @@
         <% else %>
           <% moped.bookings.each do |booking|%>
           <div class="card-my-booking">
+          <h4>BOOKING REQUEST</h4>
             <h5><%= booking.user.first_name %> <%= booking.user.last_name %></h5>
             <p><%= booking.start_date %> - <%= booking.end_date %></p>
             <% if booking.confirmed == false && booking.declined == false%>

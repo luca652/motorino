@@ -3,12 +3,6 @@
   margin-top: 24px;
 }
 
-.container-header {
-  display: flex;
-  justify-content: space-between;
-  width: 650px;
-}
-
 .container-my-mopeds {
   display: flex;
   justify-content: space-evenly;
@@ -79,4 +73,7 @@ h3 {
   }
   border-radius: 20px;
   padding: 20px;
+  h4 {
+    margin-left: 0;
+  }
 }
