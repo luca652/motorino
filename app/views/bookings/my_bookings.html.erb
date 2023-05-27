@@ -14,7 +14,7 @@
       <% @my_booking_requests.each do |booking| %>
         <div class="container-booking">
           <div class="card-booking">
-            <%= image_tag "#{booking.moped.image_url}", class: "moped-image"%>
+            <%= image_tag "#{booking.moped.image_url}", class: "moped-booking-image"%>
             <div class="card-booking-moped-infos">
               <div>
                 <h2><%= booking.moped.name %></h2>
