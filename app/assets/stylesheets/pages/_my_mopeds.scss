@@ -54,10 +54,9 @@ h3 {
 }
 
 .container-header {
-  display: flex;
-  justify-content: space-evenly;
-  width: 1000px;
-
+  margin-left: 200px;
+  margin-bottom: 25px;
+  margin-top: 100px;
 }
 
 .card-my-booking {
@@ -75,5 +74,6 @@ h3 {
   padding: 20px;
   h4 {
     margin-left: 0;
+    color: $italy-blue;
   }
 }
