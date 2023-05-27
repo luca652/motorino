@@ -1,14 +1,12 @@
 <div class="container text-center">
-  <div class="card moped-details mx-auto" style="max-width: 400px; border: 1px solid #ccc; border-radius: 8px; padding: 20px;">
+  <div class="card moped-details mx-auto" style="max-width: 400px; border: 1px solid #ccc; border-radius: 8px; padding: 4px;">
     <div class="card-body">
       <h1 class="card-title"><%= @moped.name %></h1>
 
       <div class="card-booking-moped-infos">
         <!-- Information above the image -->
         <div class="row">
-          <div class="col">
-            
-          </div>
+
           <div class="col">
             <p><%= @moped.color %></p>
           </div>
@@ -18,7 +16,7 @@
         </div>
 
         <div class="moped-image-container">
-          <%= image_tag "#{@moped.image_url}", class: "moped-image", width: 200, height: 200 %>
+          <%= image_tag "#{@moped.image_url}", class: "moped-image", width: 150, height: 150 %>
         </div>
 
         <!-- Information below the image -->
@@ -42,8 +40,10 @@
   </div>
 
   <div class="container-booking mt-4">
-  <div class="card-booking" style="max-width: 400px; margin: 0 auto; border: 1px solid #ccc; border-radius: 8px; padding: 20px;">
-    <p class="mb-0">Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
+  <div class="card-booking" style="max-width: 250px; max-height: 300px; margin: 0 auto; border: 1px solid #ccc; border-radius: 8px; padding: 20px;">
+    <p class="mb-0">Moped <%= @mopeds.index(@moped) + 1 %> out of <%= @mopeds.count %></p>
+
+
 
     <div class="card-booking-moped-infos" data-controller="datepicker" style="text-align: center;">
       <%= simple_form_for [@moped, @booking] do |f| %>
