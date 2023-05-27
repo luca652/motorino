@@ -39,7 +39,7 @@ class MopedsController < ApplicationController
     @moped = Moped.find(params[:id])
     @moped.bookings.destroy_all
     @moped.destroy
-    redirect_to root_path, status: :see_other
+    redirect_to my_mopeds_path, status: :see_other
   end
 
   def edit

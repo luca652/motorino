@@ -20,3 +20,25 @@
   background-color: $blue !important;
 
 }
+
+
+.btn-success-small-red {
+  background-color: #FF5733 ;
+  border-radius: 10px !important;
+}
+
+.btn-success-small-red:hover {
+  background-color: #C41E3A !important;
+  font-size: 10 !important;
+}
+
+.btn-success-small-blue {
+  background-color: #0096FF;
+  border-radius: 10px !important;
+  font-size: 10 !important;
+}
+
+.btn-success-small-blue:hover {
+  background-color: $blue !important;
+
+}

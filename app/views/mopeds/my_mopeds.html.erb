@@ -1,41 +1,43 @@
-<br>
-<br>
-<br>
-<div class = "container-add-moped">
-  <div class="header-and-button">
-    <h4>My mopeds</h4>
-    <div class="btn-add-moped">
-      <%= link_to "Add a new moped", new_moped_path, class: "btn btn-flat" %>
+
+<div class = "container">
+
+  <div class="container-header">
+    <div>
+      <h4>My mopeds</h4>
+      <%= link_to "Add a new moped", new_moped_path, class: "btn btn-success-blue" %>
+    </div>
+    <div>
+      <h4>Bookings</h4>
     </div>
   </div>
+
   <% @my_mopeds.each do |moped| %>
-    <div class="container">
-      <div class="card-booking">
-        <img src=""/>
-        <div class="card-booking-moped-infos">
-          <div>
-            <h2><%= moped.name %></h2>
-            <p><%= link_to "Edit", edit_moped_path(moped) %> </p>
-            <p><%= link_to "Delete", moped_path(moped), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
-          </div>
-          <div>
-            <% if moped.bookings.empty? %>
-              <p>No bookings yet</p>
-            <% else %>
-            <p>Bookings:</p>
-              <% moped.bookings.each do |booking|%>
-                <h2><%= booking.user.first_name %> <%= booking.user.last_name %></h2>
-                <p><%= booking.start_date %> - <%= booking.end_date %></p>
-                <% if booking.confirmed == false && booking.declined == false%>
-                <%= link_to "Confirm Booking", moped_booking_confirmed_path(booking.moped_id, booking.id) %>
-                <%= link_to "Decline Booking", moped_booking_declined_path(booking.moped_id, booking.id) %>
-                <% elsif booking.declined == true%>
-                <p>Declined</p>
-                <% end %>
-              <% end %>
+  <div class="container-my-mopeds">
+    <div class="card-my-moped">
+      <%= image_tag "#{moped.image_url}", class: "moped-image"%>
+      <div class="card-my-moped-infos">
+          <h3><%= moped.name %></h3>
+          <p><%= link_to "Edit", edit_moped_path(moped) %> </p>
+          <p><%= link_to "Delete", moped_path(moped), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+      </div>
+    </div>
+      <div>
+        <% if moped.bookings.empty? %>
+          <p>No bookings yet</p>
+        <% else %>
+          <% moped.bookings.each do |booking|%>
+          <div class="card-my-booking">
+            <h5><%= booking.user.first_name %> <%= booking.user.last_name %></h5>
+            <p><%= booking.start_date %> - <%= booking.end_date %></p>
+            <% if booking.confirmed == false && booking.declined == false%>
+            <%= link_to "Confirm Booking", moped_booking_confirmed_path(booking.moped_id, booking.id), class: "btn btn-success-small-blue" %>
+            <%= link_to "Decline Booking", moped_booking_declined_path(booking.moped_id, booking.id), class: "btn btn-success-small-red" %>
+            <% elsif booking.declined == true%>
+            <p>Declined</p>
             <% end %>
           </div>
-        </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   <% end %>
