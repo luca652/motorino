@@ -1,34 +1,30 @@
 <div class="container text-center">
-  <div class="card moped-details">
+  <div class="card moped-details mx-auto" style="max-width: 400px; border: 1px solid #ccc; border-radius: 8px; padding: 20px;">
     <div class="card-body">
-      <h1 class="card-title">Moped Details</h1>
+      <h1 class="card-title"><%= @moped.name %></h1>
 
       <div class="card-booking-moped-infos">
-        <!-- Row for the information above the image -->
+        <!-- Information above the image -->
         <div class="row">
           <div class="col">
-            <p><strong>Name:</strong> <%= @moped.name %></p>
+            
           </div>
           <div class="col">
-            <p><strong>Color:</strong> <%= @moped.color %></p>
+            <p><%= @moped.color %></p>
           </div>
           <div class="col">
-            <p><strong>Price:</strong> <%= @moped.price %></p>
+            <p><strong>£</strong> <%= @moped.price %></p>
           </div>
         </div>
 
         <div class="moped-image-container">
-          <!-- Image displayed here -->
           <%= image_tag "#{@moped.image_url}", class: "moped-image", width: 200, height: 200 %>
         </div>
 
-        <!-- Row for the information below the image -->
+        <!-- Information below the image -->
         <div class="row">
           <div class="col">
-            <p><strong>Description:</strong> <%= @moped.description %></p>
-          </div>
-          <div class="col">
-            <p><strong>Number of Passengers:</strong> <%= @moped.n_of_passengers %></p>
+
           </div>
         </div>
       </div>
@@ -45,20 +41,21 @@
     <% end %>
   </div>
 
-  <center><div class="container-booking mt-4">
-    <div class="card-booking">
-      <p class="mb-0">Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
+  <div class="container-booking mt-4">
+  <div class="card-booking" style="max-width: 400px; margin: 0 auto; border: 1px solid #ccc; border-radius: 8px; padding: 20px;">
+    <p class="mb-0">Moped <%= @moped.id %> out of <%= @total_mopeds %></p>
 
-      <div class="card-booking-moped-infos" data-controller="datepicker">
-        <%= simple_form_for [@moped, @booking] do |f| %>
-          <%= render 'shared/error', object: @booking %>
-          <%= f.input :start_date, as: :datepicker, label: "Start Date" %>
-          <%= f.input :end_date, as: :datepicker, label: "End Date" %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.hidden_field :moped_id, value: @moped.id %>
-          <%= f.submit "Book", class: "btn btn-success btn-block mt-3" %>
-        <% end %>
-      </div>
+    <div class="card-booking-moped-infos" data-controller="datepicker" style="text-align: center;">
+      <%= simple_form_for [@moped, @booking] do |f| %>
+        <%= render 'shared/error', object: @booking %>
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <%= f.input :start_date, as: :datepicker, label: "Start Date", input_html: { class: "form-control", style: "text-align: center;" } %>
+          <%= f.input :end_date, as: :datepicker, label: "End Date", input_html: { class: "form-control", style: "text-align: center;" } %>
+        </div>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :moped_id, value: @moped.id %>
+        <%= f.submit "Book", class: "btn btn-success btn-block mt-3" %>
+      <% end %>
     </div>
   </div>
 </div>
