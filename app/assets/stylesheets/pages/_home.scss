@@ -1,5 +1,9 @@
 // Specific CSS for your home-page
 
+body {
+margin-bottom: 0;
+}
+
 h1 {
   justify-content: center;
   color: $blue;
@@ -39,4 +43,9 @@ h2 {
 .btn {
   justify-content: center;
   margin-left: 0px;
+}
+
+.sign-up {
+  height: 100vh;
+  padding: 30px;
 }
