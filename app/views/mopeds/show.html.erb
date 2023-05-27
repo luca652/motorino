@@ -1,22 +1,18 @@
 <div class="container text-center">
   <div class="card moped-details mx-auto" style="max-width: 400px; border: 1px solid #ccc; border-radius: 8px; padding: 4px;">
     <div class="card-body">
-      <h1 class="card-title"><%= @moped.name %></h1>
+      <h4 class="card-title"><%= @moped.name %></h4>
 
       <div class="card-booking-moped-infos">
         <!-- Information above the image -->
         <div class="row">
-
           <div class="col">
-            <p><%= @moped.color %></p>
-          </div>
-          <div class="col">
-            <p><strong>£</strong> <%= @moped.price %></p>
+            <p><strong>£</strong> <%= @moped.price %> per day</p>
           </div>
         </div>
 
         <div class="moped-image-container">
-          <%= image_tag "#{@moped.image_url}", class: "moped-image", width: 150, height: 150 %>
+          <%= image_tag "#{@moped.image_url}", class: "show-moped-image", width: 150, height: 150 %>
         </div>
 
         <!-- Information below the image -->
@@ -31,21 +27,22 @@
 
   <div class="mt-4">
     <% if @previous_moped %>
-      <%= link_to "Back", moped_path(@previous_moped), class: "btn btn-primary" %>
+      <%= link_to "Back", moped_path(@previous_moped), class: "btn btn-success-blue" %>
     <% end %>
 
     <% if @next_moped %>
-      <%= link_to "Next", moped_path(@next_moped), class: "btn btn-primary" %>
+      <%= link_to "Next", moped_path(@next_moped), class: "btn btn-success-blue" %>
     <% end %>
+    <p class="mb-0">Moped <%= @mopeds.index(@moped) + 1 %> out of <%= @mopeds.count %></p>
+
   </div>
 
   <div class="container-booking mt-4">
   <div class="card-booking" style="max-width: 250px; max-height: 300px; margin: 0 auto; border: 1px solid #ccc; border-radius: 8px; padding: 20px;">
-    <p class="mb-0">Moped <%= @mopeds.index(@moped) + 1 %> out of <%= @mopeds.count %></p>
 
 
 
-    <div class="card-booking-moped-infos" data-controller="datepicker" style="text-align: center;">
+    <div class="card-booking-moped-infos calendar-div" data-controller="datepicker" style="text-align: center;">
       <%= simple_form_for [@moped, @booking] do |f| %>
         <%= render 'shared/error', object: @booking %>
         <div style="display: flex; flex-direction: column; align-items: center;">
@@ -54,7 +51,7 @@
         </div>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.hidden_field :moped_id, value: @moped.id %>
-        <%= f.submit "Book", class: "btn btn-success btn-block mt-3" %>
+        <%= f.submit "Book", class: "btn btn-success-yellow" %>
       <% end %>
     </div>
   </div>

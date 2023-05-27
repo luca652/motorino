@@ -6,6 +6,10 @@
   margin-left: 24px
 }
 
+.container h4 {
+  margin-left: 0;
+}
+
 .btn-flat {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
@@ -21,3 +25,6 @@
   color: $blue;
 }
 
+.calendar-div {
+  margin-bottom: 20px;
+}
