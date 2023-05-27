@@ -1,19 +1,20 @@
-<div style="width: 100%; height: 600px;"
+<div class="map"
+  style="width: 100%; height: 400px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
-  
-<ul><% @mopeds.each do |moped| %>
-  <div class="card-moped flex-container">
-    <div class="card-moped-infos flex-item">
-      <h4><%= link_to moped.name, moped_path(moped) %></h4>
-      <li>Color: <%= moped.color%></li>
-      <li>Description: <%= moped.description%></li>
-      <li>No of passengers <%= moped.n_of_passengers%></li>
-      <li>Price: £<%= moped.price %></li>
-      <li>Owned by <%= moped.user.first_name %></li>
-    </div>
-    <%= image_tag "#{moped.image_url}", height: 300, class: "moped-image"%>
-  </div>
-<% end %></ul>
+<div class = "card-moped-container-index">
+    <% @mopeds.each do |moped| %>
+      <div class="card-moped-index" id=<%="anchor-#{moped.id}"%>>
+        <div class="card-moped-index-infos">
+        <%= image_tag "#{moped.image_url}", height: 100, class: "moped-image"%>
+          <h5><%= link_to moped.name, moped_path(moped) %></h5>
+          <p>Price: £<%= moped.price %></p>
+          <p><%= moped.address %></p>
+          <p>Owned by <%= moped.user.first_name %></p>
+        </div>
+      </div>
+    <% end %>
+</div>

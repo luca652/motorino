@@ -1,0 +1,27 @@
+.card-moped-container-index {
+  display: grid;
+  flex-grow: 1;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 24px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.card-moped-index-infos {
+  box-shadow: 0 15px 15px rgba(0,0,0,0.2);
+  border-radius: 3%;
+  box-sizing: border-box;
+  padding: 20px;
+  line-height: 0.5;
+  justify-content:center;
+  align-items: end;
+  position: relative;
+  background: white;
+}
+
+.moped-image {
+  position: relative;
+  margin-left: 120px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
